@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POs-customer</title>
+    <!-- css link -->
+     <link rel="stylesheet" href="../asset/css/customer.css">
+      <!-- boostrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="wrapper">
+        <aside id="sidebar" class="js-sidebar">
+            <!-- Content For Sidebar -->
+            <div class="h-100">
+                <div class="sidebar-logo w-auto">
+                    <a href="#">POS System</a>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-item">
+                        <a href="/index.html" class="sidebar-link">
+                            <i class="fa-solid fa-house"></i>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="/pages/customer.html" class="sidebar-link">
+                            <i class="fa-solid fa-users"></i>
+                            Customers
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="/pages/orders.html" class="sidebar-link">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            Orders
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="/pages/items.html" class="sidebar-link">
+                            <i class="fa-solid fa-layer-group"></i>
+                            Items
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">
+                            <i class="fa-solid fa-user-plus"></i>
+                            Rejister
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link-log-out">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                            Logout
+                        </a>
+                    </li>
+        
+            </div>
+        </aside>
+        <div class="main">
+            <nav class="navbar navbar-expand px-3 border-bottom  align-content-center align-items-center justify-content-center">
+                <h1 class="fw-medium text-center my-auto    ">
+                  
+                    Customers
+                </h1>
+            </nav>
+            <div class="container">
+                <div class="row label p-2 m-auto">
+                   
+                </div>
+                <div class="row content p-1 m-auto">
+                    <div class="col-md-12 p-3">
+                        <div class="row m-auto">
+                            <div class="col-md-6">
+                                <h2 class="fw-normal fs-5 ps-3 p-2 m-0 w-100 text-light">
+                                    Customer Search
+                                </h2>
+                                <div class="search bg-light p-3">
+                                    <form class="px-2" action="search">
+                                        <div class="mb-3">
+                                            <input type="text" class="form-control border-1 border-dark-subtle rounded-1 my-3 w-100"
+                                                placeholder="Input Name/NIC/Tp Here" required />
+                                            <div class="d-flex">
+                                                <button class="btn btn-dark rounded-1 w-auto px-4">
+                                                    Search
+                                                </button>
+                                                <select class="form-select ms-2 w-auto border-1 border-dark-subtle rounded-1">
+                                                    <option>Name</option>
+                                                    <option>ID</option>
+                                                    <option>Phone</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-md-6 pt-3 pt-md-0 d-flex align-content-center align align-items-center justify-content-center">
+                                <div class="w-75">
+                                    <button class="btn btn-light px-4 rounded-1 w-100 mb-1" data-bs-toggle="modal"
+                                        data-bs-target="#newCustomerModal">
+                                        New Customer
+                                    </button>
+                                    <button class="btn btn-warning px-4 rounded-1 w-100">
+                                        View All Customers
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row button-set m-auto">
+                            <div class="col-12 px-3">
+                                <div class="p-md-3 py-3 d-flex justify-content-md-start justify-content-center gap-1">
+                                    <button class="btn btn-danger px-4 rounded-1">Delete</button>
+                                    <button class="btn btn-warning text-white px-4 rounded-1" data-bs-toggle="modal"
+                                        data-bs-target="#updateCustomerModal">
+                                        Update
+                                    </button>
+                                    <button class="btn btn-info text-white px-4 rounded-1">
+                                        Clear
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row table-content m-auto">
+                            <div class="col-12">
+                                <div class="table-responsive text-center">
+                                    <table class="table table-hover table-striped-columns">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Customer ID</th>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">Address</th>
+                                                <th scope="col">Salary</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="table-group-divider">
+                                            <tr>
+                                                <th scope="row">C001</th>
+                                                <td>John Doe</td>
+                                                <td>123 Elm St, Springfield, IL 62701</td>
+                                                <td>$55,000</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">C002</th>
+                                                <td>Jane Smith</td>
+                                                <td>456 Oak St, Madison, WI 53703</td>
+                                                <td>$72,000</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">C003</th>
+                                                <td>Emily Johnson</td>
+                                                <td>789 Pine St, Austin, TX 73301</td>
+                                                <td>$48,000</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">C004</th>
+                                                <td>Michael Brown</td>
+                                                <td>321 Maple St, Denver, CO 80202</td>
+                                                <td>$62,000</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">C005</th>
+                                                <td>Sarah Davis</td>
+                                                <td>654 Cedar St, Seattle, WA 98101</td>
+                                                <td>$85,000</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">C006</th>
+                                                <td>David Wilson</td>
+                                                <td>987 Birch St, Miami, FL 33101</td>
+                                                <td>$90,000</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">C007</th>
+                                                <td>Linda Garcia</td>
+                                                <td>135 Walnut St, Boston, MA 02101</td>
+                                                <td>$75,000</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">C008</th>
+                                                <td>Chris Martinez</td>
+                                                <td>246 Spruce St, Portland, OR 97201</td>
+                                                <td>$67,000</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">C009</th>
+                                                <td>Jessica Lee</td>
+                                                <td>357 Fir St, San Francisco, CA 94101</td>
+                                                <td>$80,000</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">C010</th>
+                                                <td>Daniel Taylor</td>
+                                                <td>468 Ash St, New York, NY 10001</td>
+                                                <td>$95,000</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ------------ New Customer Model ------------ -->
+            <div class="modal fade" id="newCustomerModal" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content rounded-0">
+                        <div class="modal-header bg-secondary text-white rounded-0">
+                            <h5 class="modal-title">New Customer</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="mb-1">
+                                    <label class="form-label fw-bold">Customer ID:</label>
+                                    <input type="text" class="form-control border-1 border-dark-subtle rounded-1 my-0" required />
+                                </div>
+                                <div class="mb-1">
+                                    <label class="form-label fw-bold">Customer Name:</label>
+                                    <input type="text" class="form-control border-1 border-dark-subtle rounded-1 my-0" required />
+                                </div>
+                                <div class="mb-1">
+                                    <label class="form-label fw-bold">Customer Address:</label>
+                                    <textarea class="form-control border-1 border-dark-subtle rounded-1 my-0" rows="3"
+                                        required></textarea>
+                                </div>
+                                <div class="mb-1">
+                                    <label class="form-label fw-bold">Customer Salary:</label>
+                                    <input type="text" class="form-control border-1 border-dark-subtle rounded-1 my-0" required />
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer button-set">
+                            <button type="button" class="btn btn-dark rounded-1 text-light">
+                                Save
+                            </button>
+                            <button type="button" class="btn btn-warning rounded-1">
+                                Renew
+                            </button>
+                            <button type="button" class="btn btn-danger rounded-1" data-bs-dismiss="modal">
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ------------ Update Customer Model ------------ -->
+            <div class="modal fade" id="updateCustomerModal" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content rounded-0">
+                        <div class="modal-header bg-secondary text-white rounded-0">
+                            <h5 class="modal-title">Update Customer</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="mb-1">
+                                    <label class="form-label fw-bold">Customer ID:</label>
+                                    <input type="text" class="form-control border-1 border-dark-subtle rounded-1 my-0" required />
+                                </div>
+                                <div class="mb-1">
+                                    <label class="form-label fw-bold">Customer Name:</label>
+                                    <input type="text" class="form-control border-1 border-dark-subtle rounded-1 my-0" required />
+                                </div>
+                                <div class="mb-1">
+                                    <label class="form-label fw-bold">Customer Address:</label>
+                                    <textarea class="form-control border-1 border-dark-subtle rounded-1 my-0" rows="3"
+                                        required></textarea>
+                                </div>
+                                <div class="mb-1">
+                                    <label class="form-label fw-bold">Customer Salary:</label>
+                                    <input type="text" class="form-control border-1 border-dark-subtle rounded-1 my-0" required />
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer button-set">
+                            <button type="button" class="btn btn-dark rounded-1 text-light">
+                                Update
+                            </button>
+                            <button type="button" class="btn btn-danger rounded-1" data-bs-dismiss="modal">
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </main>
+
+
+        <!-- boostrap 5 -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+
+</body>
+</html>
